@@ -837,7 +837,19 @@
           "note": "Exact per #7. 1% tolerance applies ONLY to the aggregate SUM metrics below (adjudicated gate#1, pilot-scoped)."
         }
       },
-      "sql": null,
+      "sql": {
+        "transpiled": "SELECT \n  CAST(A.CD_REG_FAT AS DECIMAL(10)) AS CD_REG_FAT, \n  A.SN_FECHADA, \n  A.DT_GUIA, \n  A.NR_GUIA, \n  A.VL_ACRESCIMO_CONTA, \n  A.VL_DESCONTO_CONTA, \n  A.VL_ACRESCIMO_EXTRA, \n  A.VL_DESCONTO_EXTRA, \n  A.VL_TOTAL_CONTA, \n  A.VL_TOTAL_EXTRAS, \n  A.CD_REMESSA, \n  A.CD_ATENDIMENTO, \n  A.CD_TIP_ACOM, \n  A.CD_CONTA_PAC, \n  A.DT_INICIO, \n  A.DT_FINAL, \n  A.CD_CON_PLA, \n  A.CD_CONVENIO, \n  A.VL_FILME_CONTA, \n  A.SN_FATURA_IMPRESSA, \n  A.SN_CONTA_CALCULADA, \n  A.CD_GUIA, \n  A.SN_DIAGNO, \n  A.DT_FECHAMENTO, \n  A.NM_USUARIO_FECHOU, \n  A.VL_DESCONTO_FECHAMENTO, \n  A.VL_ACRESCIMO_FECHAMENTO, \n  A.VL_CONTA_NO_FECHAMENTO, \n  A.CD_MOTIVO_GLOSA, \n  A.SN_IMPORTA_AUTO, \n  A.NR_IDENTIFICACAO, \n  A.CD_CARATER_INTERNACAO, \n  A.DT_EMISSAO_LAUDO, \n  A.NR_UTI_INICIAL, \n  A.NR_UTI_ANTERIOR, \n  A.NR_UTI_ALTA, \n  CAST(A.NR_DIARIA_ACOMPANHANTE AS DECIMAL(3)) AS NR_DIARIA_ACOMPANHANTE, \n  A.CD_PRO_FAT_SOLICITADO, \n  A.CD_PRO_FAT_REALIZADO, \n  CAST(A.CD_PRESTADOR_RESPONSAVEL AS DECIMAL(12)) AS CD_PRESTADOR_RESPONSAVEL, \n  CAST(A.CD_PRESTADOR_DIRETOR AS DECIMAL(12)) AS CD_PRESTADOR_DIRETOR, \n  A.NR_CPF_GESTOR, \n  A.CD_GESTOR_AUTORIZOU, \n  A.CD_MOT_ALT, \n  A.CD_CID_PRINCIPAL, \n  A.CD_CID_SECUNDARIO, \n  A.NM_USUARIO, \n  A.CD_DCIH, \n  A.CD_ESPEC_SUS, \n  A.NR_AIH_ANTERIOR, \n  A.NR_AIH_POSTERIOR, \n  A.CD_MULTI_EMPRESA, \n  A.CD_REGRA, \n  CAST(A.NR_PRE_NATAL AS STRING) AS NR_PRE_NATAL, \n  A.NR_SEQAIH5, \n  A.CD_FRANQUIA_VALOR_TOTAL, \n  A.VL_FRANQUIA_TOTAL, \n  CAST(A.CD_PRESTADOR_AUDITOR AS DECIMAL(12)) AS CD_PRESTADOR_AUDITOR, \n  A.VL_COPARTICIPACAO, \n  CAST(A.CD_REG_FAT_GLOSA AS DECIMAL(10)) AS CD_REG_FAT_GLOSA, \n  A.SN_PRONTA, \n  CAST(A.CD_REG_FAT_PAI AS DECIMAL(10)) AS CD_REG_FAT_PAI, \n  A.TP_MVTO, \n  A.TP_DESCONTO, \n  A.SN_LAUDO_EXPORTADO, \n  A.CD_PROT_LAUDO_SUS, \n  A.DT_PROT_LAUDO_SUS, \n  A.SN_LAUDO_ALTERADO, \n  A.VL_PONTO_PROF_AIH, \n  A.NR_SEQ_PREIMPRE, \n  A.SN_LIBERADO, \n  A.DT_AUT_HOMONIMO, \n  CAST(A.CD_CONTA_PAI AS DECIMAL(10)) AS CD_CONTA_PAI, \n  A.DS_OBSERVACAO_FRANQUIA, \n  A.NR_LAUDO_ACH, \n  A.CD_GERACAO_ACH, \n  A.SN_REGRA_LANCAMENTO, \n  A.CD_LOTE_TRABALHO, \n  A.TP_CLASSIFICACAO_CONTA, \n  A.NR_GUIA_ENVIO_PRINCIPAL, \n  A.CD_PROCEDIMENTO_REALIZADO, \n  A.CD_PROCEDIMENTO_SOLICITADO, \n  A.DT_REMESSA, \n  A.CD_CARATER_ATENDIMENTO, \n  A.TP_MODALIDADE_ATENDIMENTO, \n  A.CD_REG_FAT_INTEGRA, \n  A.CD_SEQ_INTEGRA, \n  A.DT_INTEGRA, \n  A.NM_USUARIO_REMESSA, \n  A.NR_CERIH, \n  A.NR_CMCE, \n  A.NR_CNRAC\nFROM REG_FAT A\nWHERE A.CD_MULTI_EMPRESA IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)\n",
+        "source_dialect": "oracle",
+        "transpiler": "lakebridge / bladebridge",
+        "transpile_result": {
+          "queries": 1,
+          "parse_errors": 0,
+          "validation_errors": 0,
+          "generation_errors": 0
+        },
+        "fixups_applied": [],
+        "note": "No fixups required — Oracle source projection+filter; NUMBER->DECIMAL and char->STRING converted cleanly. (source.query holds the original.)"
+      },
       "confidence": {
         "score": 0.9,
         "verified_by": "lrtbrabo",
@@ -898,6 +910,7 @@
     "adjudication_gate": 1,
     "generator": "dbx_migration.contract_agent (draft)",
     "adjudicated_by": "lrtbrabo",
-    "adjudicated_at": "2026-08-20"
+    "adjudicated_at": "2026-08-20",
+    "transpiled_at": "2026-08-24"
   }
 }
